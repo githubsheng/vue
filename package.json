@@ -12,8 +12,7 @@
   "scripts": {
     "dev": "webpack --watch",
     "test": "mocha",
-    "build": "NODE_ENV=production node build/build.js",
-    "lint": "eslint src"
+    "build": "NODE_ENV=production node build/build.js"
   },
   "repository": {
     "type": "git",

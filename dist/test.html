@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:v-on="http://www.w3.org/1999/xhtml" xmlns:v-bind="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id="app">
+    <h1>vue experiment</h1>
+    <my-custom-comp></my-custom-comp>
+</div>
+<script src="vue.js"></script>
+<script>
+    Vue.component('my-custom-comp', {
+        data: function(){
+            return {
+                message: "Hello world"
+            }
+        },
+        template: '<p>{{message}}</p>'
+    });
+
+    new Vue({
+        el: "#app"
+    })
+</script>
+</body>
+</html>
+
+
