@@ -193,13 +193,21 @@ export default function createPatchFunction (modules, api) {
   }
 
   function patchVnode (oldVnode, vnode, insertedVnodeQueue) {
+    // console.log("start to patch node");
+    // console.log(oldVnode);
+    // console.log(vnode);
     let i, hook
     if (isDef(i = vnode.data) && isDef(hook = i.hook) && isDef(i = hook.prepatch)) {
+      // console.log("prepatching node...");
+      // console.log(oldVnode);
+      // console.log(vnode);
       i(oldVnode, vnode)
+      // console.log("end of prepatching...");
     }
     // child component. skip it since it already updated itself in the
     // prepatch hook.
     if (isDef(i = vnode.data) && i.child) {
+      // console.log("child component.. end of patch");
       return
     }
     let elm = vnode.elm = oldVnode.elm
@@ -235,10 +243,12 @@ export default function createPatchFunction (modules, api) {
     if (isDef(hook) && isDef(i = hook.postpatch)) {
       i(oldVnode, vnode)
     }
+
+    // console.log("end of patch");
   }
 
   return function patch (oldVnode, vnode) {
-    var i, elm, parent
+    let i, elm, parent
     var insertedVnodeQueue = []
     for (i = 0; i < cbs.pre.length; ++i) cbs.pre[i]()
 

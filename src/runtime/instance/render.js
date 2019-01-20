@@ -54,6 +54,7 @@ export function renderMixin (Vue) {
     // because we don't know whether the children have changed.
     // need to optimize in the future.
     if (children || diffParentData(parentData, oldParentData)) {
+      console.log("updating children...");
       this.$forceUpdate()
     }
   }
